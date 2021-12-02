@@ -3,6 +3,7 @@ import 'dart:async';
 
 
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -19,7 +20,6 @@ import 'package:easy_localization/easy_localization.dart';
 
 
 
-//TODO trans
 class DatabaseService {
 
   BuildContext context;
@@ -28,7 +28,7 @@ class DatabaseService {
 
   final DatabaseReference reference = FirebaseDatabase.instance.reference();
 
-  void signUpUser(UserModel user){
+  Future<void> signUpUser(UserModel user) async{
     reference.child('users').child(user.id).once().then((value){
       if(value.value != null){
         updateUserName(user.id,user.firstName,user.lastName);
@@ -36,7 +36,10 @@ class DatabaseService {
         writeNewUser(user);
       }
     });
-
+    String fcmToken = await FirebaseMessaging.instance.getToken();
+    reference.child('users').child(user.id).update(<String, String>{
+      "fcmToken": fcmToken
+    });
   }
   Future<bool> checkUserExistence(UserModel user)async{
     bool exist;
@@ -166,11 +169,12 @@ class DatabaseService {
         'customer_id' : order.customerId,
         'address_id': order.addressId,
         'notes': order.notes,
-        'time_stamp': '${DateTime.now()}',
+        'timestamp': '${DateTime.now()}',
         'delivered_at': '',
         'products': cart,
         'price': order.price,
-        'status': 'pending'
+        'status': 'pending',
+        'service': order.service,
       });
       _showSnackBar(LocaleKeys.order_placed_successfully.tr());
     }catch(e){
@@ -302,7 +306,7 @@ class DatabaseService {
       return Map<String, dynamic>.from(e.snapshot.value).entries.map((e) {
           List<CartItem> products = Map<String, dynamic>.from(e.value['products']).entries.map((m) => CartItem(m.key, m.value)).toList();
           return OrderModel(e.key,e.value['customer_id'], e.value['address_id'],
-              products, e.value['price'],e.value['notes'],e.value['status'],e.value['delivered_at']);
+              products, e.value['price'],e.value['notes'],e.value['status'],e.value['delivered_at'],e.value['service']);
         }).toList();
     });
   }
@@ -311,7 +315,7 @@ class DatabaseService {
       return Map<String, dynamic>.from(e.snapshot.value).entries.map((e) {
           List<CartItem> products = Map<String, dynamic>.from(e.value['products']).entries.map((m) => CartItem(m.key, m.value)).toList();
           return OrderModel(e.key,e.value['customer_id'], e.value['address_id'],
-              products, e.value['price'],e.value['notes'],e.value['status'],e.value['delivered_at']);
+              products, e.value['price'],e.value['notes'],e.value['status'],e.value['delivered_at'],e.value['service']);
         }).toList();
     });
   }

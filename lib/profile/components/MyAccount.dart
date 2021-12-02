@@ -53,6 +53,7 @@ class _MyAccountState extends State<MyAccount> {
                     press: () {
                       if (_formKey.currentState.validate()) {
                         DatabaseService(context).updateUserName(user.id, firstNameCont.text, lastNameCont.text);
+                        Navigator.pushReplacementNamed(context,'/');
                       }
                       //   _formKey.currentState.save();
                       // if all are valid then go to success screen

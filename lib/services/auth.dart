@@ -29,7 +29,7 @@ class AuthService {
   Future verifyPhone(BuildContext context, String phone) async {
     FocusScope.of(context).unfocus();
     pd = ProgressDialog(context: context);
-    pd.show(max: 60, msg: LocaleKeys.sending_sms.tr(),progressBgColor: kPrimaryLightColor,progressValueColor: kPrimaryColor);
+    pd.show(max: 30, msg: LocaleKeys.sending_sms.tr(),progressBgColor: kPrimaryLightColor,progressValueColor: kPrimaryColor);
     try {
       await _auth.verifyPhoneNumber(
         phoneNumber: phone,
@@ -53,8 +53,8 @@ class AuthService {
         codeSent: (String verificationId, int resendToken) async {
           myVerificationId = verificationId;
           myPhone = phone;
-          if(_isLogged = false){
-          navigate(context, OtpScreen());
+          if(!_isLogged){
+          navigate(context, OtpScreen.routeName);
           }
         },
         timeout: const Duration(seconds: 60),
@@ -73,7 +73,7 @@ class AuthService {
 
   void verifySMS(BuildContext context, String code) async {
     pd = ProgressDialog(context: context);
-    pd.show(max: 60, msg: LocaleKeys.verifying_phone.tr(),progressBgColor: kPrimaryLightColor,progressValueColor: kPrimaryColor);
+    pd.show(max: 30, msg: LocaleKeys.verifying_phone.tr(),progressBgColor: kPrimaryLightColor,progressValueColor: kPrimaryColor);
     try {
       credential = PhoneAuthProvider.credential(
           verificationId: myVerificationId, smsCode: code);
@@ -115,20 +115,19 @@ class AuthService {
     }
   }
 
-  navigate(BuildContext context, Widget page) {
+  navigate(BuildContext context, String page) {
     FocusScope.of(context).unfocus();
     pd.close();
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => page),
+    Navigator.pushReplacementNamed(
+      context, page
     );
   }
   void navigateToSignUP(BuildContext context){
     final isUpdating = Provider.of<AuthUpdating>(context, listen: false);
     if (isUpdating.isUpdatingValue ){
-      navigate(context, Wrapper());
+      navigate(context, Wrapper.routeName);
     }else{
-      navigate(context, SignUpScreen());
+      navigate(context, SignUpScreen.routeName);
     }
   }
 }

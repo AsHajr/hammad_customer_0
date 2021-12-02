@@ -96,10 +96,10 @@ class _CartScreenState extends State<CartScreen> {
                               user.id,
                               address.id,
                               cartProvider.cartValue,
-                              "$total",
+                              "${total.toStringAsFixed(2)}",
                               notesCont.text,
                               "",
-                              "");
+                              "","1");
                           DatabaseService(context).writeNewOrder(order);
                           DatabaseService(context).updateUserPoints(user.id, "$points");
                           cartProvider.cart.clear();

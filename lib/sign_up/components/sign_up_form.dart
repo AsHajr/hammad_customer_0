@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hammad_customer_0/components/custom_surfix_icon.dart';
 import 'package:hammad_customer_0/components/default_button.dart';
 import 'package:hammad_customer_0/components/form_error.dart';
 import 'package:hammad_customer_0/translations/locale_keys.g.dart';
@@ -9,7 +8,6 @@ import 'package:hammad_customer_0/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-
 import '../../constants.dart';
 import '../../size_config.dart';
 import '../../wrapper.dart';
@@ -17,6 +15,7 @@ import '../../wrapper.dart';
 
 
 class SignUpForm extends StatefulWidget {
+
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
@@ -81,6 +80,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
   TextFormField buildLastNameFormField() {
     return TextFormField(
+      maxLength: 15,
       onSaved: (newValue) => lastName = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
@@ -98,13 +98,14 @@ class _SignUpFormState extends State<SignUpForm> {
       decoration: InputDecoration(
         labelText: LocaleKeys.last_name.tr(),
         hintText: LocaleKeys.enter_your_last_name.tr(),
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+        // suffixIcon: Icon(Icons.person_outlined),
       ),
     );
   }
 
   TextFormField buildFirstNameFormField() {
     return TextFormField(
+      maxLength: 144,
       onSaved: (newValue) => firstName = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
@@ -121,8 +122,8 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: InputDecoration(
         labelText: LocaleKeys.first_name.tr(),
-        hintText: LocaleKeys.first_name.tr(),
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+        hintText: LocaleKeys.enter_your_first_name.tr(),
+        // suffixIcon: Icon(Icons.person_outlined),
       ),
     );
   }

@@ -30,38 +30,43 @@ class DiscountBanner extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Text(
-                '${user.firstName} ${user.lastName}',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
-                  letterSpacing: 1.0,
-                  fontWeight: FontWeight.bold,
+          Container(
+            width: SizeConfig.screenWidth * .50,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  '${user.firstName} ${user.lastName}',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.0,
+                    letterSpacing: 1.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Row(
-                children: <Widget>[
-                  Text(
-                    user.points,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.0,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      user.points,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 10,),
-                  Text(
-                    LocaleKeys.points.tr(),
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
+                    SizedBox(width: 10,),
+                    Text(
+                      LocaleKeys.points.tr(),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18.0,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
 
           Padding(

@@ -1,6 +1,4 @@
 
-
-import 'package:connectivity/connectivity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +11,16 @@ import 'package:hammad_customer_0/profile/profile_screen.dart';
 import 'package:hammad_customer_0/redeemOffers.dart';
 import 'package:hammad_customer_0/services/AuthState.dart';
 import 'package:hammad_customer_0/services/UserService.dart';
+import 'package:hammad_customer_0/sign_up/sign_up_screen.dart';
 import 'package:hammad_customer_0/theme.dart';
 import 'package:provider/provider.dart';
 
 import 'AuthPage.dart';
 
 
-
 class Wrapper extends StatefulWidget {
   const Wrapper({Key key}) : super(key: key);
-
+  static String routeName = "/wrapper";
 
   @override
   _WrapperState createState() => _WrapperState();
@@ -30,10 +28,6 @@ class Wrapper extends StatefulWidget {
 
 
 class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
-  // void getfcm() async{
-  //   print(await FirebaseMessaging.instance.getToken());
-  // }
-
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -49,12 +43,15 @@ class _WrapperState extends State<Wrapper> with SingleTickerProviderStateMixin {
           child: MaterialApp(
             theme: theme(),
             routes:{ '/': (context) => HomeScreen(),
+              '/otp_screen': (context) => OtpScreen(),
+              '/sign_up': (context) => SignUpScreen(),
             'profile/': (context) => ProfileScreen(),
             'order/': (context) => OrderPage(),
             'redeem/': (context) => OffersScreen(),
             'addresses/': (context) => SavedAddresses(),
               'cart/': (context) => CartScreen(),
               'map/': (context) => GoogleMapPage(),
+              '/wrapper': (context) => Wrapper(),
           },
           ));
     }

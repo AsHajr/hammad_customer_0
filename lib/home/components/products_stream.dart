@@ -49,7 +49,7 @@ class ProductsStream extends StatelessWidget {
                         );
                       }),
                 );
-              }return Text('no orders');
+              }return Container();
             }),
       ],
     );
@@ -76,7 +76,7 @@ class ProductCard extends StatelessWidget {
             Container(
               height: 125,
                 width: 115,
-                padding: EdgeInsets.all(getProportionateScreenWidth(5)),
+                padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   color: kSecondaryColor.withOpacity(0.05),
                   borderRadius: BorderRadius.circular(15),

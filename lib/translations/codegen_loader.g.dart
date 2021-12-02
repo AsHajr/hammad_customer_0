@@ -216,7 +216,7 @@ static const Map<String,dynamic> en = {
   "jod": "JOD",
   "no": "No",
   "yes": "Yes",
-  "first_name": "Fist name",
+  "first_name": "First name",
   "last_name": "Last name",
   "this_field_is_required": "This field is required",
   "price": "Price",

@@ -50,6 +50,7 @@ class PreviousOrders extends StatelessWidget {
               );
             }else{
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding:

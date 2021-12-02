@@ -92,9 +92,10 @@ class pOrderCard extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        order.cart.length == 1 ?  OrderProductStream(cartItem: order.cart.first,):
                         OrderProductStream(cartItem: order.cart.first,),
                         order.cart.length > 1 ?
-                          OrderProductStream(cartItem: order.cart[1],):Container(),
+                        OrderProductStream(cartItem: order.cart[1],):Container(),
                         order.cart.length == 3 ?
                         OrderProductStream(cartItem: order.cart.last,):Container(),
                         order.cart.length > 3 ?Text("+${order.cart.length - 2} ${LocaleKeys.more.tr()}"):Container(),

@@ -78,7 +78,7 @@ class mOrderCard extends StatelessWidget {
         onTap: () {
           CartProvider cartProvider = Provider.of<CartProvider>(context, listen: false);
           cartProvider.cart = order.cart;
-          cartProvider.cartPrice = double.parse(order.price);
+          cartProvider.cartPrice = double.parse(order.price) - double.parse(order.service);
           Navigator.pushNamed(context, 'order/');
           Navigator.pushNamed(context, 'cart/');
         },

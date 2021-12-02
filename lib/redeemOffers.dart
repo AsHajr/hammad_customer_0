@@ -114,7 +114,7 @@ class _OffersScreenState extends State<OffersScreen> {
                           Divider(thickness: 2, height: 20,),
                           Padding(
                               padding:
-                              EdgeInsets.all(getProportionateScreenWidth(10)),
+                              EdgeInsets.all(getProportionateScreenWidth(20)),
                               child: Text(
                                 LocaleKeys.offers.tr(), style: TextStyle(
                                 fontSize: getProportionateScreenWidth(18),
@@ -138,6 +138,7 @@ class _OffersScreenState extends State<OffersScreen> {
                                       scrollDirection: Axis.vertical,
                                       shrinkWrap: true,
                                       itemCount: validOffers.length,
+                                      physics: NeverScrollableScrollPhysics(),
                                       itemBuilder: (context, index) =>
 
                                           OffersCard(
@@ -201,27 +202,6 @@ class MyOffers extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Padding(
-                    //   padding: EdgeInsets.symmetric(
-                    //     horizontal: getProportionateScreenWidth(15.0),
-                    //     vertical: getProportionateScreenWidth(10),
-                    //   ),
-                    //   child: Text.rich(
-                    //     TextSpan(
-                    //       style: TextStyle(color: Colors.white),
-                    //       children: [
-                    //         TextSpan(
-                    //           text: "${offer.description}\n",
-                    //           style: TextStyle(
-                    //             fontSize: getProportionateScreenWidth(18),
-                    //             fontWeight: FontWeight.bold,
-                    //           ),
-                    //         ),
-                    //         TextSpan(text: "${offer.subDescription} ")
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),

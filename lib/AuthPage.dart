@@ -127,33 +127,41 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   Row buildPhoneNumberFormField() {
     OutlineInputBorder outlineInputBorder = OutlineInputBorder(
       // borderRadius: BorderRadius.circular(28),
-      borderSide: BorderSide(color: Colors.white,width: 0.0),
+      borderSide: BorderSide(color: Colors.white, width: 0.0),
       gapPadding: 10,
     );
     return Row(
         children: [
-           CountryCodePicker(
-                onChanged:  (code){
-                  setState(() {
-                    countryCode = '$code' ;
-                  });
-                },
-                // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                initialSelection: 'JO',
-                favorite: ['JO'],
-                // optional. Shows only country name and flag
-                showCountryOnly: false,
-                // optional. Shows only country name and flag when popup is closed.
-                showOnlyCountryWhenClosed: false,
-                // optional. aligns the flag and the Text left
-                alignLeft: false,
-                showFlag: true,
-                padding: EdgeInsets.symmetric(horizontal: 2),
-              ),
+          CountryCodePicker(
+            onChanged: (code) {
+              setState(() {
+                countryCode = '$code';
+              });
+            },
+            // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+            initialSelection: 'JO',
+            favorite: ['JO'],
+            // optional. Shows only country name and flag
+            showCountryOnly: false,
+            // optional. Shows only country name and flag when popup is closed.
+            showOnlyCountryWhenClosed: false,
+            // optional. aligns the flag and the Text left
+            alignLeft: false,
+            showFlag: true,
+            padding: EdgeInsets.zero,
+          ),
+
           Container(
+            height: 80,
             width: getProportionateScreenWidth(236),
             child: TextFormField(
-              onFieldSubmitted:(value) { _auth.verifyPhone(context, '$value');},
+              onFieldSubmitted: (value) {
+                if (_formKey.currentState.validate()) {
+                  _formKey.currentState.save();
+
+                  _auth.verifyPhone(context, '$countryCode$phoneNumber');
+                }
+              },
               autofocus: false,
               keyboardType: TextInputType.phone,
               onSaved: (newValue) => phoneNumber = newValue,
@@ -182,7 +190,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   }
 }
 class OtpScreen extends StatelessWidget {
-  static String routeName = "/otp";
+  static String routeName = "/otp_screen";
 
   @override
   Widget build(BuildContext context) {
@@ -293,12 +301,7 @@ class _OtpFormState extends State<OtpForm> {
           DefaultButton(
             text: LocaleKeys.continue_text.tr(),
             press: () {
-              // AuthService().verifySMS(context, code);
-              //Todo remove
-              // Navigator.pushReplacement(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => SignUpScreen()),
-              // );
+              AuthService().verifySMS(context, code);
             },
           )
         ],
