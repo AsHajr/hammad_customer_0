@@ -1,0 +1,179 @@
+{
+  "project_info": {
+    "project_number": "556110315083",
+    "firebase_url": "https://hammad-4eeae-default-rtdb.firebaseio.com",
+    "project_id": "hammad-4eeae",
+    "storage_bucket": "hammad-4eeae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556110315083:android:8706144cf922c12a7017ce",
+        "android_client_info": {
+          "package_name": "com.example.hammad_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556110315083-to87dl3tt26jcd1724uld31j4q153ar1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hammad_admin",
+            "certificate_hash": "affe124a605efad0eb995f473eff37a7d4a162c5"
+          }
+        },
+        {
+          "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9cuuNXohSHlrUvKMeqRxitgxoWcNGEKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "556110315083-5bfote91anssut58kojp9rjq1ia9jo1h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hammad.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556110315083:android:b202ba3c2de17cba7017ce",
+        "android_client_info": {
+          "package_name": "com.example.hammad_customer_0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556110315083-1dd4maianvgfrmk03mbet9fak6u0r0do.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hammad_customer_0",
+            "certificate_hash": "affe124a605efad0eb995f473eff37a7d4a162c5"
+          }
+        },
+        {
+          "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9cuuNXohSHlrUvKMeqRxitgxoWcNGEKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "556110315083-5bfote91anssut58kojp9rjq1ia9jo1h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hammad.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556110315083:android:50f7fb799a3a64e07017ce",
+        "android_client_info": {
+          "package_name": "com.example.my_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556110315083-7o3q577skscfie19vnt9en42agvoj6p5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.my_flutter",
+            "certificate_hash": "affe124a605efad0eb995f473eff37a7d4a162c5"
+          }
+        },
+        {
+          "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9cuuNXohSHlrUvKMeqRxitgxoWcNGEKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "556110315083-5bfote91anssut58kojp9rjq1ia9jo1h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hammad.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556110315083:android:a36c6632f169189d7017ce",
+        "android_client_info": {
+          "package_name": "com.hammad.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9cuuNXohSHlrUvKMeqRxitgxoWcNGEKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556110315083-v51hbnrcunikhkhktpg50sihrafn89mo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "556110315083-5bfote91anssut58kojp9rjq1ia9jo1h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hammad.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

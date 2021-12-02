@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>556110315083-ocja70ugc1nr1c0fbmm6mk2bh7ilcpe8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.556110315083-ocja70ugc1nr1c0fbmm6mk2bh7ilcpe8</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>556110315083-0dlsf4tihdbgq8hfr3e093f8139dus95.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB5nXWufR3hfdNy6KkFP26GmAGAehjEPOI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>556110315083</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hammad.app</string>
+	<key>PROJECT_ID</key>
+	<string>hammad-4eeae</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hammad-4eeae.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:556110315083:ios:803897709e8625627017ce</string>
+	<key>DATABASE_URL</key>
+	<string>https://hammad-4eeae-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
