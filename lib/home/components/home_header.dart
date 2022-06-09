@@ -3,7 +3,6 @@ import 'package:hammad_customer_0/services/googleMapApp.dart';
 import 'package:hammad_customer_0/translations/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 import '../../../size_config.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -12,6 +11,7 @@ class HomeHeader extends StatelessWidget {
   }) : super(key: key);
 
   @override
+
   Widget build(BuildContext context) {
     return Padding(
       padding:
@@ -19,7 +19,6 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           Text(LocaleKeys.my_hammad.tr(), style: TextStyle(fontSize: 20),),
           // SearchField(),
           Row(
@@ -38,7 +37,7 @@ class HomeHeader extends StatelessWidget {
               IconButton(onPressed: () {
                 Navigator.pushNamed(
                     context,
-                    'profile/');
+                    '/profile');
               },
                 icon: Icon(Icons.settings_outlined), color: Colors.black,),
             ],

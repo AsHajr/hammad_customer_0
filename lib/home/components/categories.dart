@@ -7,7 +7,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     List<Map<String, dynamic>> categories = [
-//       {"icon": "assets/icons/Cart Icon.svg", "text": "Order Now",'press':(){print('hi');}},
+//       {"icon": "assets/icons/Cart Icon.svg", "text": "order_screen Now",'press':(){print('hi');}},
 //       // {"icon": "assets/icons/Directions.svg", "text": "Bill"},
 //       // {"icon": "assets/icons/Location point.svg", "text": "Game"},
 //

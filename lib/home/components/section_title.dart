@@ -17,22 +17,25 @@ class SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: press,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: getProportionateScreenWidth(18),
-              color: Colors.black,
+      child: Container(
+        padding: EdgeInsets.all(19),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: getProportionateScreenWidth(18),
+                color: Colors.black,
+              ),
             ),
-          ),
-          Icon(
-            // onPressed: (press),
-        Icons.arrow_forward_ios_sharp, color: kSecondaryColor,),
-              // style: TextStyle(color: Color(0xFFBBBBBB)),
-          // ),
-        ],
+            Icon(
+              // onPressed: (press),
+          Icons.arrow_forward_ios_sharp, color: kSecondaryColor,),
+                // style: TextStyle(color: Color(0xFFBBBBBB)),
+            // ),
+          ],
+        ),
       ),
     );
   }

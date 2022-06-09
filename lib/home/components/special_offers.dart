@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hammad_customer_0/models/OfferModel.dart';
+import 'package:hammad_customer_0/models/Offer.dart';
 import 'package:hammad_customer_0/services/checkLanguage.dart';
-import 'package:hammad_customer_0/services/database.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:hammad_customer_0/translations/locale_keys.g.dart';
 
 import '../../../size_config.dart';
+import '../../services/gen_database.dart';
 import 'section_title.dart';
 
 class SpecialOffers extends StatefulWidget {
@@ -20,53 +19,48 @@ class SpecialOffers extends StatefulWidget {
 }
 
 class _SpecialOffersState extends State<SpecialOffers> {
-  List<OfferModel> offers;
-  List<OfferModel> validOffers;
+  List<Offer> offers;
+  List<Offer> validOffers;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(
-            title: LocaleKeys.redeem_points.tr(),
-            press: () {
-                Navigator.pushNamed(context, 'redeem/');
-            },
-          ),
+        SectionTitle(
+          title: LocaleKeys.redeem_points.tr(),
+          press: () {
+            Navigator.pushNamed(context, 'redeem/');
+          },
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         StreamBuilder(
-            stream: DatabaseService(context).getOffersStream,
-            builder: (context, snapshot){
+            stream: GenDatabaseService(context).getOffersStream,
+            builder: (context, snapshot) {
               offers = [];
               validOffers = [];
-              if(snapshot.hasData) {
-                offers = snapshot.data as List<OfferModel>;
+              if (snapshot.hasData) {
+                offers = snapshot.data as List<Offer>;
                 validOffers = offers.where((element) {
-                  return DateTime.now().isBefore(
-                      DateTime.parse(element.expiryDate)) &&
-                      DateTime.now().isAfter(
-                          DateTime.parse(element.startDate));
+                  return DateTime.now()
+                          .isBefore(DateTime.parse(element.expiryDate)) &&
+                      DateTime.now().isAfter(DateTime.parse(element.startDate));
                 }).toList();
+              }
+              if (validOffers.isNotEmpty) {
                 return Container(
                   height: 150,
                   child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
+                      scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       itemCount: validOffers.length,
-                      itemBuilder: (context, index) =>
-                          SpecialOfferCard(
-                            offer: validOffers[index],)
-                  ),
+                      itemBuilder: (context, index) => SpecialOfferCard(
+                            offer: validOffers[index],
+                          )),
                 );
               }
-              return
-                Container();
-            }
-        ),
+              return Container();
+            }),
       ],
     );
   }
@@ -78,13 +72,13 @@ class SpecialOfferCard extends StatelessWidget {
     this.offer,
   }) : super(key: key);
 
-  final OfferModel offer;
+  final Offer offer;
 
   @override
   Widget build(BuildContext context) {
     final padding = getPaddingDir(context);
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         Navigator.pushNamed(context, "redeem/");
       },
       child: Padding(
@@ -97,46 +91,49 @@ class SpecialOfferCard extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(offer.imageUrl,),
+                  image: NetworkImage(
+                    offer.imageUrl,
+                  ),
                   fit: offer.boxFit,
                 ),
-              ), child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFF343434).withOpacity(0.4),
-                        Color(0xFF343434).withOpacity(0.15),
-                      ],
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xFF343434).withOpacity(0.4),
+                          Color(0xFF343434).withOpacity(0.15),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(15.0),
-                    vertical: getProportionateScreenWidth(10),
-                  ),
-                  child: Text.rich(
-                    TextSpan(
-                      style: TextStyle(color: Colors.white),
-                      children: [
-                        TextSpan(
-                          text: "${offer.description}\n",
-                          style: TextStyle(
-                            fontSize: getProportionateScreenWidth(18),
-                            fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(15.0),
+                      vertical: getProportionateScreenWidth(10),
+                    ),
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(color: Colors.white),
+                        children: [
+                          TextSpan(
+                            text: "${offer.description}\n",
+                            style: TextStyle(
+                              fontSize: getProportionateScreenWidth(18),
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        TextSpan(text: "${offer.subDescription} ")
-                      ],
+                          TextSpan(text: "${offer.subDescription} ")
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
             ),
           ),
         ),
